@@ -1,7 +1,9 @@
 pipeline {
-    agent { dockerfile true }
+    agent {
+        docker { image 'docker-node-alpine-git' }
+    }
 
-    stages{
+    stages {
         stage ("cloning") {
             steps{
                 echo "cloning"
