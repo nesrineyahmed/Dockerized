@@ -1,6 +1,6 @@
 pipeline {
     agent { dockerfile true }
-
+    stages {
         stage ("Deploy"){
             steps{
                 echo "start project"
