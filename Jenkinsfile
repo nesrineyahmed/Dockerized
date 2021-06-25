@@ -1,10 +1,23 @@
 pipeline {
     agent { dockerfile true }
-    stages {
+
+    stages{
+        stage ("cloning") {
+            steps{
+                echo "cloning"
+                sh "git clone https://github.com/contentful/the-example-app.nodejs.git"
+            }
+        }
+        stage ("Install dependenciess"){
+            steps{
+                echo "installing dependencies"
+                sh "cd /the-example-app.nodejs && npm install"
+            }
+        }
         stage ("Deploy"){
             steps{
                 echo "start project"
-                sh "cd /workshop/the-example-app.nodejs && npm run start:dev &"
+                sh "cd /the-example-app.nodejs && npm run start:dev &"
             }
         }
         stage ("Test"){
