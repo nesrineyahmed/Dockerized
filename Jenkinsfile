@@ -4,7 +4,7 @@ pipeline {
         stage ("Deploy"){
             steps{
                 echo "start project"
-                sh "cd the-example-app.nodejs && npm run start:dev &"
+                sh "cd /workshop/the-example-app.nodejs && npm run start:dev &"
             }
         }
         stage ("Test"){
