@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker { image 'timbru31/node-alpine-git' }
+        docker { dockerfile true }
     }
 
     stages {
